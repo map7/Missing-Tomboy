@@ -21,7 +21,8 @@ def get_missing
     note = Document.new(file).root
 
     { :title => note.elements['title'].text,
-      :content => note.elements['text/note-content'].text}
+      :content => note.elements['text/note-content'].text,
+      :file => file }
   }
 end
 
@@ -34,3 +35,4 @@ get '/show' do
   @file = get_missing[params[:id].to_i]
   haml :show
 end
+

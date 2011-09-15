@@ -1,22 +1,16 @@
-!!!
-%html
-	%head
-		%link(rel="stylesheet" href="css/stylesheet.css")
+%h2 Missing Tomboy Notes
 
-	%body
-		%h2 Missing Tomboy Notes
+%table
+	%th Title
+	%th Actions
 
-		%table
-			%th Title
-			%th Actions
+	- @missing.each.with_index do |file, index|
+		%tr
+			%td.title
+				%a{:href => url("/show?id=#{index}")}= file[:title].slice(0,60)
+			%td.actions Restore, Delete
+		%tr
+			%td.content
+				= file[:content].slice(0,80)
+				= "..." if file[:content].size > 80
 
-			- @missing.each.with_index do |file, index|
-				%tr
-					%td.title
-						%a{:href => url("/show?id=#{index}")}= file[:title].slice(0,60)
-					%td.actions Restore, Delete
-				%tr
-					%td.content
-						= file[:content].slice(0,80)
-						= "..." if file[:content].size > 80
-					
