@@ -46,3 +46,10 @@ get '/restore' do
   flash[:notice] = "#{@file[:title]} restored"
   redirect '/'
 end
+
+get '/delete' do
+  @file = get_missing[params[:id].to_i]
+  system("rm #{@file[:file].to_path}")
+  flash[:delete] = "#{@file[:title]} deleted"
+  redirect '/'
+end

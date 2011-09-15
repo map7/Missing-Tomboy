@@ -9,3 +9,9 @@
     text-align: center;
     width: 100%;
 }
+
+.delete {
+    background: red;
+    text-align: center;
+    width: 100%;
+}

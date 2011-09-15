@@ -1,8 +1,10 @@
 %h2= @file[:title]
 .properties= @file[:file].to_path
 
-= @file[:content]
+%h4 Contents
+%pre= @file[:content]
 
 %p
 	%a{:href => url("/restore?id=#{params[:id]}")} Restore
+	%a{:href => url("/delete?id=#{params[:id]}")} Delete
 	%a{:href => url('/')} Back

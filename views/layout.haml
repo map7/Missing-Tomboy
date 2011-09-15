@@ -4,4 +4,6 @@
 		%link(rel="stylesheet" href="css/stylesheet.css")
 
 	%body
+		.notice= flash[:notice]
+		.delete= flash[:delete]
 		=yield

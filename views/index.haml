@@ -1,5 +1,3 @@
-.notice= flash[:notice]
-
 %h2 Missing Tomboy Notes
 .content= "Total notes missing: #{@missing.size}"
 
@@ -13,7 +11,7 @@
 				%a{:href => url("/show?id=#{index}")}= file[:title].slice(0,60)
 			%td.actions
 				%a{:href => url("/restore?id=#{index}")} Restore
-				Delete
+				%a{:href => url("/delete?id=#{index}")} Delete
 		%tr
 			%td.content
 				= file[:content].slice(0,80)
