@@ -6,6 +6,8 @@ Missing tomboy collects notes from your backup area and lets you restore or dele
 
 Tomboy must be installed and you should have some files in the backup dir.
 
+Ruby 1.9.x & Rubygems should be installed.
+
 Install the following gems with command:
 $ gem install sinatra rack-flash haml shotgun
 
