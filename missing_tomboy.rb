@@ -42,7 +42,7 @@ end
 
 get '/restore' do
   @file = get_missing[params[:id].to_i]
-
+  system("mv #{@file[:file].to_path} #{DIR}")
   flash[:notice] = "#{@file[:title]} restored"
   redirect '/'
 end
