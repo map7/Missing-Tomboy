@@ -1,7 +1,11 @@
 require 'sinatra'
 require 'rexml/document'
 include REXML
+require 'rack-flash'
 require 'haml'
+
+use Rack::Session::Cookie
+use Rack::Flash
 
 DIR = "#{ENV['HOME']}/.local/share/tomboy"
 BAK = "#{DIR}/Backup"
@@ -36,3 +40,9 @@ get '/show' do
   haml :show
 end
 
+get '/restore' do
+  @file = get_missing[params[:id].to_i]
+
+  flash[:notice] = "#{@file[:title]} restored"
+  redirect '/'
+end
